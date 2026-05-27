@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Food Table Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🍽️ Daily Food Table Generator</h1>
+            <p class="subtitle">Plan your weekly meals with ease</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Input Section -->
+            <section class="input-section">
+                <div class="form-group">
+                    <label for="mealName">Meal Name:</label>
+                    <input type="text" id="mealName" placeholder="e.g., Spaghetti Carbonara" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mealDay">Day:</label>
+                    <select id="mealDay" required>
+                        <option value="">Select a day</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="mealType">Meal Type:</label>
+                    <select id="mealType" required>
+                        <option value="">Select meal type</option>
+                        <option value="Breakfast">🌅 Breakfast</option>
+                        <option value="Lunch">🌞 Lunch</option>
+                        <option value="Dinner">🌙 Dinner</option>
+                        <option value="Snack">🍿 Snack</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="calories">Calories (optional):</label>
+                    <input type="number" id="calories" placeholder="e.g., 500" min="0">
+                </div>
+
+                <div class="form-actions">
+                    <button id="addBtn" class="btn btn-primary">Add Meal</button>
+                    <button id="clearAllBtn" class="btn btn-danger">Clear All</button>
+                </div>
+            </section>
+
+            <!-- Statistics Section -->
+            <section class="stats-section" id="statsSection" style="display: none;">
+                <div class="stat-card">
+                    <span class="stat-label">Total Meals</span>
+                    <span class="stat-value" id="totalMeals">0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Total Calories</span>
+                    <span class="stat-value" id="totalCalories">0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Avg per Meal</span>
+                    <span class="stat-value" id="avgCalories">0</span>
+                </div>
+            </section>
+
+            <!-- Table Section -->
+            <section class="table-section">
+                <div class="table-controls">
+                    <input type="text" id="searchInput" placeholder="🔍 Search meals..." class="search-box">
+                    <select id="filterDay" class="filter-select">
+                        <option value="">All Days</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                    </select>
+                    <button id="exportBtn" class="btn btn-secondary">📥 Export CSV</button>
+                </div>
+
+                <div class="table-wrapper">
+                    <table id="mealTable" class="meal-table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Meal Type</th>
+                                <th>Meal Name</th>
+                                <th>Calories</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <tr class="empty-state">
+                                <td colspan="5">No meals added yet. Start planning your week! 🎯</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Daily Food Table Generator. Made with ❤️ by DacodeyTech</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
